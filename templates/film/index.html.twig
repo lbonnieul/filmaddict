@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Film index{% endblock %}
+
+{% block body %}
+    <h1>Film index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for film in films %}
+            <tr>
+                <td style="vertical-align: middle">{{ film.id }}</td>
+                <td style="vertical-align: middle">{{ film.titre }}</td>
+                <td style="vertical-align: middle">{{ film.score }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('film_show', {'id': film.id}) }}">En savoir plus</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails Film{% endblock %}
+
+{% block body %}
+    {% if err_del %}
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Echec</strong> Le mot de passe admin est incorrect.
+        </div>
+    {% endif %}
+    <h1>Film</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ film.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ film.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ film.description }}</td>
+            </tr>
+            <tr>
+                <th>Score</th>
+                <td>{{ film.score }}</td>
+            </tr>
+            <tr>
+                <th>NombreVotants</th>
+                <td>{{ film.nombreVotants }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ include('film/_delete_form.html.twig') }}
+{% endblock %}
